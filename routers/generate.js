@@ -9,23 +9,32 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
   if(req.hasOwnProperty("body")) {
-    /* const completion = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: "Say this is a test",
-      max_tokens: 7,
-      temperature: 0,
-    });
-  
-    res.json({
-        response: completion.data.choices[0].text
-    })
-    */
+    if(req.hasOwnProperty("text")) {
+      const firstPrompt = 
+        `Write a header for this product: ${req.body.text}`
 
-    res.json({
-      response: "This works."
-    })
+        console.log(firstPrompt)
+
+      const secondPrompt = 
+        `Write a subheader for this product: ${req.body.text}`
+
+      const thirdPrompt = 
+        `Write a description for this product: ${req.body.text}`
+
+      const completion = await openai.createCompletion({
+        model: "text-davinci-003",
+        prompt: firstPrompt,
+        max_tokens: 7,
+        temperature: 0,
+      });
+    
+      res.json({
+          response: completion.data.choices[0].text
+      })
+    }
+    
   }
   
 })
