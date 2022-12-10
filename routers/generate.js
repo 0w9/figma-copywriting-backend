@@ -15,7 +15,7 @@ router.post('/', jsonParser, async (req, res) => {
   console.log(req.body.text)
 
       const headerPrompt = 
-        ` Write a header for this product: ${req.body.text}
+        ` Write a catchy header for this product: ${req.body.text}
           Header: 
         `
 
@@ -25,6 +25,8 @@ router.post('/', jsonParser, async (req, res) => {
         max_tokens: 100,
         temperature: 0,
       });
+
+      console.log(headerCompletion)
 
       const subHeaderPrompt = 
         `
@@ -39,6 +41,8 @@ router.post('/', jsonParser, async (req, res) => {
         max_tokens: 100,
         temperature: 0,
       });
+
+      console.log(subHeaderPrompt)
 
       const descriptionPrompt = 
         `
@@ -55,6 +59,9 @@ router.post('/', jsonParser, async (req, res) => {
         temperature: 0,
       });
 
+      console.log(descriptionCompletion)
+
+
       const ctaPrompt = 
         `
           Write a cta for this product: ${req.body.text}
@@ -70,6 +77,9 @@ router.post('/', jsonParser, async (req, res) => {
         max_tokens: 100,
         temperature: 0,
       });
+
+      console.log(ctaCompletion)
+
     
       res.json({
           header: headerCompletion.data.choices[0].text.replace(/(\r\n|\n|\r)/gm, "").replace(/\s{2,}/g, "").trim(),
