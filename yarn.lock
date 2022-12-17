@@ -58,6 +58,11 @@
     "combined-stream" "^1.0.8"
     "mime-types" "^2.1.12"
 
+"hex-rgb@^5.0.0":
+  "integrity" "sha512-NQO+lgVUCtHxZ792FodgW0zflK+ozS9X9dwGp9XvvmPlH7pyxd588cn24TD3rmPm/N0AIRXF10Otah8yKqGw4w=="
+  "resolved" "https://registry.npmjs.org/hex-rgb/-/hex-rgb-5.0.0.tgz"
+  "version" "5.0.0"
+
 "mime-db@1.52.0":
   "integrity" "sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg=="
   "resolved" "https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz"
