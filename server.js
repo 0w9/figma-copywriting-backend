@@ -8,6 +8,10 @@ app.use(cors())
 
 const port = process.env.PORT || 3000
 
+app.get("/", (req, res) => {
+    res.json({test: "works"})
+})
+
 app.use('/generate', generate)
 // Console
 app.listen(5001, () => {
