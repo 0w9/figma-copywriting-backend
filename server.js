@@ -8,6 +8,6 @@ app.use(cors())
 
 app.use('/generate', generate)
 
-app.listen(process.env.BACKEND_PORT, () => {
-console.log(`Example app listening on port ${process.env.BACKEND_PORT}`)
+app.listen(5001, () => {
+console.log(`Example app listening on port 5001`)
 })

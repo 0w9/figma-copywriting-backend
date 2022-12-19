@@ -4,15 +4,18 @@ const express = require('express')
 const router = express.Router()
 require('dotenv').config();
 
-const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-});
 
-const openai = new OpenAIApi(configuration);
 var jsonParser = bodyParser.json()
 
 router.post('/', jsonParser, async (req, res) => {
       console.log(req.body)
+
+      const configuration = new Configuration({
+        apiKey: req.body.key
+      });
+
+      const openai = new OpenAIApi(configuration);
+    
       const headerPrompt = 
         ` Write a catchy header for this product: ${req.body.text}
           Header: 
